@@ -133,6 +133,7 @@ venv.bak/
 *.log
 *.sql
 *.sqlite
+*.out
 
 # OS generated files #
 ######################
@@ -143,3 +144,4 @@ venv.bak/
 .Trashes
 ehthumbs.db
 Thumbs.db
+
