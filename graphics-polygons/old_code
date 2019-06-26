@@ -1,0 +1,106 @@
+FOR ADD SPHERE
+     
+            if (lat + 1) * step + longt + 1 < len(points): 
+                indexbl = lat * step + longt + 1
+                indexbr = lat * step + longt 
+                indextl = (lat + 1) * step + longt + 1
+                indextr = (lat + 1) * step + longt
+
+                topl = points[indextl]
+                topr = points[indextr]
+                bottoml = points[indexbl]
+                bottomr = points[indexbr]
+
+                if ((lat * step + longt % (step + 1)) != step - 1 and (index + 1) % (step )!= 0): 
+                    add_polygon(edges, 
+                                topl[0], topl[1], topl[2], 
+                                bottoml[0], bottoml[1], bottoml[2],
+                                bottomr[0], bottomr[1], bottomr[2])
+                    add_polygon(edges,
+                                topr[0], topr[1], topr[2],
+                                topl[0], topl[1], topl[2],
+                                bottomr[0], bottomr[1], bottomr[2])
+            elif index >= (step * (step - 2)) and index < (len(points) - 1):
+                indexbl = index + 1
+                indexbr = index
+                indextl = indexbl % step
+                indextr = indexbr % step
+
+                topl = points[indextl]
+                topr = points[indextr]
+                bottoml = points[indexbl]
+                bottomr = points[indexbr]
+
+                add_polygon(edges, 
+                            topl[0], topl[1], topl[2], 
+                            bottoml[0], bottoml[1], bottoml[2],
+                            bottomr[0], bottomr[1], bottomr[2])
+                add_polygon(edges,
+                            topr[0], topr[1], topr[2],
+                            topl[0], topl[1], topl[2],
+                            bottomr[0], bottomr[1], bottomr[2])
+
+
+
+FOR ADD TORUS
+
+ if index + 2 < len(points): 
+                indexbl = lat * step + longt + 1
+                indexbr = lat * step + longt
+                i = indexbr 
+                indextl = (lat + 1) * step + longt + 2
+                indextr = (lat + 1) * step + longt + 1
+                if (indexbr % (step + 1)) == 0: 
+                    x = int(indexbr / (step + 1)) + 1
+                indextl = indextl - x
+                indextr = indextr - x
+                if (x > 1): 
+                    indexbl = indexbl - (x - 1)
+                    indexbr = indexbr - (x - 1)
+                
+                topr = points[indextr]
+                bottomr = points[indexbr]
+
+                if ((i > 0) and (i + 1) % (step + 1) != 0) or i == 0: 
+                    if (i + 2) % (step + 1) == 0: 
+                        bottoml = points[indexbl - step]
+                        topl = points[indextl - step]
+                    else: 
+                        bottoml = points[indexbl]
+                        topl = points[indextl]
+                    add_polygon(edges, 
+                                topl[0], topl[1], topl[2], 
+                                bottoml[0], bottoml[1], bottoml[2],
+                                bottomr[0], bottomr[1], bottomr[2])
+                    add_polygon(edges,
+                                topr[0], topr[1], topr[2],
+                                topl[0], topl[1], topl[2],
+                                bottomr[0], bottomr[1], bottomr[2])
+
+
+            if index >= ((step - 1) * step): 
+                indexbl = index + 1
+                indexbr = index
+                indextr = indexbr % step
+                indextl = indexbl % step
+
+                if(index + 1 < len(points)): 
+                    topl = points[indextl]
+                    topr = points[indextr]
+                    bottoml = points[indexbl]
+                    bottomr = points[indexbr]
+                else: 
+                    topl = points[0]
+                    topr = points[step - 1]
+                    bottomr = points[index]
+                    bottoml = points[(step - 1) * step]
+
+                add_polygon(edges, 
+                            topl[0], topl[1], topl[2], 
+                            bottoml[0], bottoml[1], bottoml[2],
+                            bottomr[0], bottomr[1], bottomr[2])
+                add_polygon(edges,
+                            topr[0], topr[1], topr[2],
+                            topl[0], topl[1], topl[2],
+                            bottomr[0], bottomr[1], bottomr[2])
+                    

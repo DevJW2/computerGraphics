@@ -1,0 +1,13 @@
+move
+215 300 0
+sphere
+144 250 0 35
+sphere
+330 250 0 35
+torus
+240 135 0 20 100
+torus
+235 300 0 25 120
+display
+save
+gallery.png

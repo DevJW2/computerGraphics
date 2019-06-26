@@ -1,0 +1,21 @@
+box
+0 0 0 200 100 400
+ident
+rotate
+y 20
+move
+215 300 0
+apply
+sphere
+144 250 0 35
+sphere
+330 250 0 35
+torus
+240 135 0 15 100
+torus
+144 300 0 15 50
+torus
+330 300 0 15 50
+display
+save
+gallery.png
